@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="https://image.shutterstock.com/image-vector/businessman-icon-260nw-564112600.jpg">
+</head>
+<style>
+    html.input 
+{
+    font-family: sans-serif;
+}
+body
+{
+    width: 100%;
+    max-width: 600px;
+    margin: 0px auto;
+    padding: 2em;
+}
+.headContainer
+{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    background: rgb(255, 108, 71);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+form{
+    margin-top: 50px;
+}
+div
+{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+label,input,button
+{
+    font-size: 16px;
+    line-height: 1.5;
+
+}
+label{
+    text-align: right;
+    width: 30%;
+    margin-right: 2%;
+}
+input
+{
+    flex: auto;
+}
+button
+{
+    width: 70%;
+    margin: 0 auto;
+}
+error-output
+{
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+}
+
+
+</style>
+<body>
+    <form>
+        <header class="headerContainer"><h1>HTML 5 FORM IN INPUT FIELDS</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQydgC2morWjLXJrIBDKSxO-YyQWJYnX5FYGQ&usqp=CAU" alt="form">
+    </header>
+        <div>
+            <label for="text">text input type for Name: </label>
+             <input type="text" id ="text" name= "text">
+             <error-output class="text-error" for="text"></error-output>
+        </div>
+        <div>
+            <label for= "pwd">password input type</label>
+            <input type="password" id = "pwd" name="pwd">
+        </div>
+        <div>
+            <label for="email">email input type</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="number">number input type</label>
+            <input type="number" id="number" name="number">
+        </div>
+        <div>
+            <label for="tel">tel input typr</label>
+            <input type="tel" id="tel" name="tel">
+        </div>
+        <div>
+            <label for="search">search input type</label>
+            <input type="search" id="search" name="search">
+        </div>
+        <div class = "nativeDateTimePicker">
+            <label for="party">Choose a date and time:</label>
+            <input type="datetime-local" id="party" name="bdy">
+            <span class="validity"></span>
+        </div>
+        <div>
+            <label for="salary">Choose your salary:</label>
+            <input type="range" name="salary" id="salary" min="300000"
+            max="50000000" step="100" value="4000000">
+            <output class="salary-output" for="salary">4000000</output>
+        </div>
+        <div>
+            <button>Sumbit</button>
+        </div>
+ </form>
+ <script>
+     const text = document.querySelector('#test');
+     const textError = document.querySelector('.text-error');
+     text.addEventListener('input', function() {
+         let nameRegex = RegExp('^[A-Z]{1}[a-z](2,)$');
+         if(nameRegex.test(text.value))
+         textError.textContent ="";
+         else textError.textContent = "Name is Incorrect";
+     });
+     const salary = document.querySelector('#salary');
+     const output = document.querySelector('.salary-output');
+     output.textContent = salary.value;
+     salary.addEventListener('input', function(){
+         output.textContent = salary.value;
+     });
+
+
+ </script>
+    
+
+</body>
+</html>
